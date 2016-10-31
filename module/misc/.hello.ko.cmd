@@ -1,0 +1,1 @@
+cmd_/home/pushkar/Dossier/Linux/module/misc/hello.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/pushkar/Dossier/Linux/module/misc/hello.ko /home/pushkar/Dossier/Linux/module/misc/hello.o /home/pushkar/Dossier/Linux/module/misc/hello.mod.o

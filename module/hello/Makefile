@@ -7,7 +7,12 @@ all:
 .PHONY: clean
 
 clean:
-	rm -rf *.o
+	@echo Clean objs
+	@rm -rf *.o
+	@rm -rf *.ko
+	@rm -rf *.mod.c
+	@rm -rf *.symvers
+	@rm -rf *.order
 
 insert:
 	insmod hello.ko
