@@ -1,0 +1,1 @@
+cmd_/home/pjambhlekar/Linux/Linux/module/intr/kbintr.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/pjambhlekar/Linux/Linux/module/intr/kbintr.ko /home/pjambhlekar/Linux/Linux/module/intr/kbintr.o /home/pjambhlekar/Linux/Linux/module/intr/kbintr.mod.o
