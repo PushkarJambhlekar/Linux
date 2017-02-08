@@ -1,0 +1,8 @@
+pjambhlekar@pjambhlekar-hp:~/Linux/Linux/module/sshfs$ ls /dev/eudyptula 
+/dev/eudyptula
+pjambhlekar@pjambhlekar-hp:~/Linux/Linux/module/sshfs$ cat /dev/eudyptula 
+57127be5f1c3pjambhlekar@pjambhlekar-hp:~/Linux/Linux/module/sshfs$ echo hi >> /dev/eudyptula 
+bash: echo: write error: Invalid argument
+pjambhlekar@pjambhlekar-hp:~/Linux/Linux/module/sshfs$ echo 57127be5f1c3  >> /dev/eudyptula 
+pjambhlekar@pjambhlekar-hp:~/Linux/Linux/module/sshfs$ 
+
