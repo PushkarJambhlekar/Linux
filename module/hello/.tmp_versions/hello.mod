@@ -1,3 +1,2 @@
-/home/pushkar/Dossier/Linux/module/hello/hello.ko
-/home/pushkar/Dossier/Linux/module/hello/hello.o
-
+/home/pjambhlekar/pjambhlekar/linux/module/hello/hello.ko
+/home/pjambhlekar/pjambhlekar/linux/module/hello/hello.o
