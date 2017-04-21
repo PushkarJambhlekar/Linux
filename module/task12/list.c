@@ -15,6 +15,7 @@ struct identity {
 //static struct identity *db_head;
 static LIST_HEAD(db_head);
 static struct mutex db_lock;
+static struct kmem_cache *db_cache;
 
 static void __id_add(struct identity *obj)
 {
@@ -29,7 +30,7 @@ static int identity_create(char *name, int id)
 		return -EINVAL;
 	}
 
-	temp = kmalloc(sizeof(struct identity), GFP_KERNEL);
+	temp = kmem_cache_alloc(db_cache, GFP_KERNEL);
 	if (!temp)
 		return -ENOMEM;
 
@@ -69,7 +70,7 @@ static void identity_destroy(int id)
 		return;
 
 	list_del(&id_node->list);
-	kfree(id_node);
+	kmem_cache_free(db_cache, id_node);
 }
 
 static void init_list(void)
@@ -77,7 +78,8 @@ static void init_list(void)
 	struct identity *temp;
 
 	mutex_init (&db_lock);
-
+	db_cache = kmem_cache_create ("identity", sizeof(struct identity),
+				     0, 0, NULL);
 	if (identity_create("Alice", 1))
 		pr_err("Failed to create identity for Alice\n");
 
@@ -112,6 +114,7 @@ static int __init hello_init(void)
 
 void __exit hello_exit(void)
 {
+	kmem_cache_destroy(db_cache);
 	pr_debug ("Exiting list module\n");
 }
 
