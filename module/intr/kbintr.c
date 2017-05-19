@@ -12,7 +12,7 @@ static irqreturn_t irq_handle (int irq, void *dev)
 
 static void mainmodule(void)
 {	
-	if(request_irq(1, irq_handle, IRQF_SHARED, "foo", (void*)irq_handle))
+	if(request_irq(135, irq_handle, IRQF_SHARED, "foo", (void*)irq_handle))
 	{
 		printk(KERN_ERR "FOO: failed to register IRQ\n");
 	}
